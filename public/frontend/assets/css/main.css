@@ -1,0 +1,839 @@
+/* Fonts */
+:root {
+    --default-font: "Prompt", "Roboto", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --heading-font: "Prompt", "Poppins", sans-serif;
+    --nav-font    : "Prompt", "Raleway", sans-serif;
+}
+
+/* Global Colors - The following color variables are used throughout the website. Updating them here will change the color scheme of the entire website */
+:root {
+    --background-color: #ffffff;
+    /* Background color for the entire website, including individual sections */
+    --default-color   : #000000;
+    /* Default color used for the majority of the text content across the entire website */
+    --heading-color   : #000000;
+    /* Color for headings, subheadings and title throughout the website */
+    --accent-color    : #000000;
+    /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
+    --surface-color   : #ffffff;
+    /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
+    --contrast-color  : #ffffff;
+    /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
+}
+
+/* Nav Menu Colors - The following color variables are used specifically for the navigation menu. They are separate from the global colors to allow for more customization options */
+:root {
+    --nav-color                    : #000000;
+    /* The default color of the main navmenu links */
+    --nav-hover-color              : #000000;
+    /* Applied to main navmenu links when they are hovered over or active */
+    --nav-mobile-background-color  : #ffffff;
+    /* Used as the background color for mobile navigation menu */
+    --nav-dropdown-background-color: #ffffff;
+    /* Used as the background color for dropdown items that appear when hovering over primary navigation items */
+    --nav-dropdown-color           : #000000;
+    /* Used for navigation links of the dropdown items in the navigation menu. */
+    --nav-dropdown-hover-color     : #ffcb10;
+    /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
+}
+
+/* Smooth scroll */
+:root {
+    scroll-behavior: smooth;
+}
+
+/*--------------------------------------------------------------
+# General Styling & Shared Classes
+--------------------------------------------------------------*/
+body {
+    color           : #000000;
+    background-color: #ffffff;
+    font-family     : var(--default-font);
+}
+
+a {
+    color          : #000000;
+    text-decoration: none;
+    transition     : 0.3s;
+}
+
+a:hover {
+    color          : color-mix(in srgb, #000000, transparent 25%);
+    text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color      : #000000;
+    font-family: var(--heading-font);
+}
+
+/*--------------------------------------------------------------
+# Global Header
+--------------------------------------------------------------*/
+.header {
+    color           : #000000;
+    transition      : all 0.5s;
+    z-index         : 997;
+    background-color: #ffcb10;
+    box-shadow   : 0px 0px 30px rgba(0, 0, 0, 0.5);
+}
+
+.header .topbar {
+    background-color: #095c8a;
+    height          : 60px;
+    padding         : 0;
+    font-size       : 14px;
+    transition      : all 0.5s;
+}
+
+.header .topbar .contact-info i {
+    font-style: normal;
+    color     : #ffffff;
+}
+
+.header .topbar .contact-info i a,
+.header .topbar .contact-info i span {
+    padding-left: 5px;
+    color       : #ffffff;
+}
+
+@media (max-width: 575px) {
+
+    .header .topbar .contact-info i a,
+    .header .topbar .contact-info i span {
+        font-size: 13px;
+    }
+}
+
+.header .topbar .contact-info i a {
+    line-height: 0;
+    transition : 0.3s;
+}
+
+.header .topbar .contact-info i a:hover {
+    color          : #ffffff;
+    text-decoration: underline;
+}
+
+.header .topbar .social-links a {
+    color      : color-mix(in srgb, #ffffff, transparent 40%);
+    line-height: 0;
+    transition : 0.3s;
+    margin-left: 20px;
+}
+
+.header .topbar .social-links a:hover {
+    color: #ffffff;
+}
+
+.header .branding {
+    min-height: 60px;
+    padding   : 10px 0;
+}
+
+.header .logo {
+    line-height: 1;
+}
+
+.header .logo img {
+    max-height  : 50px;
+    margin-right: 8px;
+}
+
+.header .logo h1 {
+    font-size  : 30px;
+    margin     : 0;
+    font-weight: 700;
+    color      : #000000;
+}
+
+@media (max-width: 1200px) {
+    /* .header .logo {
+        order: 1;
+    } */
+
+    .header .cta-btn {
+        order  : 2;
+        margin : 0 15px 0 0;
+        padding: 6px 15px;
+    }
+
+    .header .navmenu {
+        order: 3;
+    }
+}
+
+.scrolled .header {
+    box-shadow: 0px 0 18px rgba(0, 0, 0, 0.1);
+}
+
+.scrolled .header .topbar {
+    height    : 0;
+    visibility: hidden;
+    overflow  : hidden;
+}
+
+/*--------------------------------------------------------------
+# Navigation Menu
+--------------------------------------------------------------*/
+/* Desktop Navigation */
+@media (min-width: 1200px) {
+    .navmenu {
+        padding: 0;
+    }
+
+    .navmenu ul {
+        margin      : 0;
+        padding     : 0;
+        display     : flex;
+        list-style  : none;
+        align-items : center;
+        margin-right: 1rem;
+    }
+
+    .navmenu li {
+        position: relative;
+    }
+
+    .navmenu>ul>li {
+        white-space: nowrap;
+        padding    : 15px 14px;
+    }
+
+    .navmenu>ul>li:last-child {
+        padding-right: 0;
+    }
+
+    .navmenu a,
+    .navmenu a:focus {
+        color          : #ec3d19;
+        font-size      : 16px;
+        padding        : 0 2px;
+        font-family    : var(--nav-font);
+        font-weight    : 600;
+        display        : flex;
+        align-items    : center;
+        justify-content: space-between;
+        white-space    : nowrap;
+        transition     : 0.3s;
+        position       : relative;
+    }
+
+    .navmenu a i,
+    .navmenu a:focus i {
+        font-size  : 12px;
+        line-height: 0;
+        margin-left: 5px;
+        transition : 0.3s;
+    }
+
+    .navmenu>ul>li>a:before {
+        content         : "";
+        position        : absolute;
+        width           : 100%;
+        height          : 2px;
+        bottom          : -6px;
+        left            : 0;
+        background-color: #003470;
+        visibility      : hidden;
+        width           : 0px;
+        transition      : all 0.3s ease-in-out 0s;
+    }
+
+    .navmenu a:hover:before,
+    .navmenu li:hover>a:before,
+    .navmenu .active:before {
+        visibility: visible;
+        width     : 100%;
+    }
+
+    .navmenu li:hover>a,
+    .navmenu .active,
+    .navmenu .active:focus {
+        color: #ec3d19;
+    }
+
+    .navmenu .dropdown ul {
+        margin       : 0;
+        padding      : 10px 0;
+        background   : #ffffff;
+        display      : block;
+        position     : absolute;
+        visibility   : hidden;
+        left         : 14px;
+        top          : 130%;
+        opacity      : 0;
+        transition   : 0.3s;
+        border-radius: 4px;
+        z-index      : 99;
+        box-shadow   : 0px 0px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .navmenu .dropdown ul li {
+        min-width: 200px;
+    }
+
+    .navmenu .dropdown ul a {
+        padding       : 10px 20px;
+        font-size     : 15px;
+        text-transform: none;
+        color         : #000000;
+    }
+
+    .navmenu .dropdown ul a i {
+        font-size: 12px;
+    }
+
+    .navmenu .dropdown ul a:hover,
+    .navmenu .dropdown ul .active:hover,
+    .navmenu .dropdown ul li:hover>a {
+        color: #ffcb10;
+    }
+
+    .navmenu .dropdown:hover>ul {
+        opacity   : 1;
+        top       : 100%;
+        visibility: visible;
+    }
+
+    .navmenu .dropdown .dropdown ul {
+        top       : 0;
+        left      : -90%;
+        visibility: hidden;
+    }
+
+    .navmenu .dropdown .dropdown:hover>ul {
+        opacity   : 1;
+        top       : 0;
+        left      : -100%;
+        visibility: visible;
+    }
+}
+
+/* Mobile Navigation */
+@media (max-width: 1199px) {
+    .mobile-nav-toggle {
+        color       : #000000;
+        font-size   : 28px;
+        line-height : 0;
+        margin-right: 10px;
+        cursor      : pointer;
+        transition  : color 0.3s;
+    }
+
+    .navmenu {
+        padding: 0;
+        z-index: 9997;
+    }
+
+    .navmenu ul {
+        display         : none;
+        list-style      : none;
+        position        : absolute;
+        inset           : 60px 20px 20px 20px;
+        padding         : 10px 0;
+        margin          : 0;
+        border-radius   : 6px;
+        background-color: #ffffff;
+        border          : 1px solid color-mix(in srgb, #000000, transparent 90%);
+        box-shadow      : none;
+        overflow-y      : auto;
+        transition      : 0.3s;
+        z-index         : 9998;
+    }
+
+    .navmenu a,
+    .navmenu a:focus {
+        color          : #000000;
+        padding        : 10px 20px;
+        font-family    : var(--nav-font);
+        font-size      : 17px;
+        font-weight    : 500;
+        display        : flex;
+        align-items    : center;
+        justify-content: space-between;
+        white-space    : nowrap;
+        transition     : 0.3s;
+    }
+
+    .navmenu a i,
+    .navmenu a:focus i {
+        font-size       : 12px;
+        line-height     : 0;
+        margin-left     : 5px;
+        width           : 30px;
+        height          : 30px;
+        display         : flex;
+        align-items     : center;
+        justify-content : center;
+        border-radius   : 50%;
+        transition      : 0.3s;
+        background-color: #000000;
+        color           : #ffffff;
+    }
+
+    .navmenu a i:hover,
+    .navmenu a:focus i:hover {
+        background-color: #000000;
+        color           : #ffffff;
+    }
+
+    .navmenu a:hover,
+    .navmenu .active,
+    .navmenu .active:focus {
+        color: #000000;
+    }
+
+    .navmenu .active i,
+    .navmenu .active:focus i {
+        background-color: #000000;
+        color           : #ffffff;
+        transform       : rotate(180deg);
+    }
+
+    .navmenu .dropdown ul {
+        position        : static;
+        display         : none;
+        z-index         : 99;
+        padding         : 10px 0;
+        margin          : 10px 20px;
+        background-color: #ffffff;
+        transition      : all 0.5s ease-in-out;
+    }
+
+    .navmenu .dropdown ul ul {
+        background-color: rgba(33, 37, 41, 0.1);
+    }
+
+    .navmenu .dropdown>.dropdown-active {
+        display         : block;
+        background-color: #ffffff;
+    }
+
+    .mobile-nav-active {
+        overflow: hidden;
+    }
+
+    .mobile-nav-active .mobile-nav-toggle {
+        color       : #fff;
+        position    : absolute;
+        font-size   : 32px;
+        top         : 15px;
+        right       : 15px;
+        margin-right: 0;
+        z-index     : 9999;
+    }
+
+    .mobile-nav-active .navmenu {
+        position  : fixed;
+        overflow  : hidden;
+        inset     : 0;
+        background: rgba(33, 37, 41, 0.8);
+        transition: 0.3s;
+    }
+
+    .mobile-nav-active .navmenu>ul {
+        display: block;
+    }
+}
+
+/*--------------------------------------------------------------
+# Scroll Top Button
+--------------------------------------------------------------*/
+.scroll-top {
+    position        : fixed;
+    visibility      : hidden;
+    opacity         : 0;
+    right           : 15px;
+    bottom          : 15px;
+    z-index         : 99999;
+    background-color: #095C8A;
+    width           : 40px;
+    height          : 40px;
+    border-radius   : 4px;
+    transition      : all 0.4s;
+}
+
+.scroll-top i {
+    font-size  : 24px;
+    color      : #ffcb10;
+    line-height: 0;
+}
+
+.scroll-top:hover {
+    background-color: color-mix(in srgb, #ffcb10, transparent 20%);
+    color           : #ffcb10;
+}
+
+.scroll-top.active {
+    visibility: visible;
+    opacity   : 1;
+}
+
+/*--------------------------------------------------------------
+# Starter Section Section
+--------------------------------------------------------------*/
+.search-section {
+    background-color: #ffffff;
+    padding         : 25px;
+    border-radius   : 10px;
+    box-shadow      : 0 10px 15px rgba(0, 0, 0, 0.1);
+    margin-top      : -60px;
+    position        : relative;
+    z-index         : 10;
+    border-top      : 5px solid #095c8a;
+}
+
+.search-section h5 {
+    color      : #000000;
+    font-family: var(--default-font);
+}
+
+.search-form {
+    display    : flex;
+    gap        : 15px;
+    align-items: flex-end;
+}
+
+.form-group {
+    flex: 1;
+}
+
+.form-group label {
+    display      : block;
+    margin-bottom: 8px;
+    font-size    : 14px;
+    color        : #555;
+}
+
+.form-group select {
+    width           : 100%;
+    padding         : 12px;
+    border          : 1px solid #ddd;
+    border-radius   : 6px;
+    font-size       : 16px;
+    background-color: #fff;
+}
+
+.btn-search {
+    background-color: #ffcb10;
+    color           : #ec3d19;
+    border          : none;
+    padding         : 10px 30px;
+    font-weight     : 600;
+    font-size       : 16px;
+    border-radius   : 6px;
+    cursor          : pointer;
+    min-width       : 120px;
+}
+
+.btn-block {
+    display: block;
+    width  : 100% !important;
+}
+
+.section-title {
+    text-align : center;
+    margin     : 30px 0 30px;
+    font-size  : 25px;
+    font-weight: 600;
+    color: #095c8a;
+}
+
+.services-grid {
+    display              : grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap                  : 15px;
+    padding-bottom       : 40px;
+}
+
+.service-card {
+    background   : #ffffff;
+    padding      : 20px;
+    text-align   : center;
+    border-radius: 12px;
+    box-shadow   : 0 2px 10px rgba(0, 0, 0, 0.05);
+    cursor       : pointer;
+    border-bottom: 5px solid #095c8a;
+}
+
+.service-icon-box {
+    width           : 50px;
+    height          : 50px;
+    background-color: #FFF5EB;
+    border-radius   : 50%;
+    margin          : 0 auto 10px;
+    display         : flex;
+    align-items     : center;
+    justify-content : center;
+    color           : #ffcb10;
+}
+
+.branch-search h5 {
+    text-align: center;
+    margin    : 30px 0 25px 0;
+    font-size : 25px;
+}
+
+.search-box {
+    display    : flex;
+    flex-wrap  : wrap;
+    gap        : 15px;
+    align-items: flex-end;
+}
+
+/* ปุ่มเข้าสู่ระบบ / ลงทะเบียน */
+.auth-pill-wrapper {
+    background-color: #000;
+    border-radius   : 50px;
+    padding         : 5px 20px;
+    display         : inline-flex;
+    align-items     : center;
+    gap             : 20px;
+    box-shadow      : 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition      : transform 0.2s;
+    margin          : 0 0 0 30px;
+}
+
+.auth-pill-wrapper:hover {
+    transform: translateY(-2px);
+}
+
+.auth-link {
+    color          : #fff !important;
+    text-decoration: none !important;
+    font-weight    : 600;
+    font-size      : 14px;
+    cursor         : pointer;
+    transition     : color 0.2s;
+}
+
+.auth-link:hover {
+    color: #ffc400 !important;
+}
+
+.auth-separator {
+    color      : #ffffff;
+    font-weight: 300;
+    user-select: none;
+}
+
+.auth-pill-wrapper-mobile {
+    background-color: #ffcb10;
+    border-radius   : 50px;
+    padding         : 5px 20px;
+    display         : inline-flex;
+    align-items     : center;
+    box-shadow      : 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition      : transform 0.2s;
+    margin          : 0 0 0 15px;
+}
+
+.auth-pill-wrapper-mobile:hover {
+    transform: translateY(-2px);
+}
+
+.auth-link-mobile {
+    color          : #000000 !important;
+    text-decoration: none !important;
+    font-weight    : 600;
+    font-size      : 14px;
+    cursor         : pointer;
+    transition     : color 0.2s;
+    padding        : 0px 10px !important;
+}
+
+.auth-separator-mobile {
+    color      : #000000;
+    font-weight: 300;
+    user-select: none;
+}
+
+.form-group {
+    flex     : 1;
+    min-width: 200px;
+}
+
+.form-group label {
+    display      : block;
+    margin-bottom: 8px;
+    font-weight  : 600;
+    font-size    : 14px;
+}
+
+.form-control {
+    width        : 100%;
+    padding      : 12px 15px;
+    border       : 1px solid #ddd;
+    border-radius: 4px;
+    font-size    : 16px;
+    box-sizing   : border-box;
+}
+
+.distance-select {
+    max-width: 150px;
+}
+
+.action-buttons {
+    display  : flex;
+    gap      : 10px;
+    flex-wrap: wrap;
+}
+
+.text-header {
+    font-size: 2rem;
+}
+
+/* Contact Us */
+.contact-form {
+    margin: 15px 0 0 0;
+}
+
+.contact-form .form-control input {
+    height: 40px !important;
+}
+
+/* branch */
+.card-branch {
+    margin-top: 20px;
+}
+
+/* footer */
+footer {
+    background-color: #ffcb10;
+    color           : #095c8a;
+    padding         : 40px 0 20px;
+    margin-top      : 40px;
+    font-family     : var(--default-font);
+    border-top: 3px solid #095c8a;
+}
+
+.footer-content {
+    display              : grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap                  : 20px;
+}
+
+.footer-col h4 {
+    color        : #ec3d19;
+    margin-bottom: 15px;
+    font-family  : var(--default-font);
+}
+
+.footer-col ul li {
+    margin-bottom: 10px;
+    font-size    : 16px;
+    color        : #ffffff;
+    list-style   : none;
+}
+
+.footer-col a {
+    color: #095c8a;
+}
+
+.footer-col ul {
+    padding-left: 0 !important;
+}
+
+.table thead.table-blue th {
+    background-color: #095c8a !important;
+    color: #fff !important;
+}
+
+.bg-blue {
+    background-color: #095c8a !important;
+    color: #fff !important;
+}
+
+.brand-item {
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    height: 60px;
+}
+
+.brand-item:hover {
+    border-color: #095c8a;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+}
+
+.brand-logo-wrapper {
+    width: 120px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.brand-logo-wrapper img {
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+}
+
+.bi-hand-index-thumb-fill {
+    font-size: 0.9rem;
+    transform: rotate(90deg);
+}
+
+.text-blue {
+  color: #095C8A !important;
+}
+
+.text-danger {
+    color: #ec3d19 !important;
+}
+
+/* แสดงผลหน้าจอมือถือ */
+
+@media (max-width: 768px) {
+    .search-section {
+        margin-top: 20px;
+        padding   : 20px;
+    }
+
+    .search-form {
+        flex-direction: column;
+        gap           : 15px;
+        align-items   : stretch;
+    }
+
+    .btn-search {
+        width  : 100%;
+        padding: 10px;
+    }
+
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+        text-align           : center;
+    }
+
+    .search-box {
+        flex-direction: column;
+        align-items   : stretch;
+    }
+
+    .distance-select {
+        max-width: 100%;
+    }
+
+    .action-buttons {
+        flex-direction: column;
+    }
+
+    /* .btn {
+        width: 100%;
+    } */
+}
